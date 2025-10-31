@@ -77,7 +77,7 @@
       \LaTeX\ Workshop%
     \end{beamercolorbox}%
     \begin{beamercolorbox}[wd=.15\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
-      Spring 2025%
+      Fall 2025%
     \end{beamercolorbox}%
     \begin{beamercolorbox}[wd=.30\paperwidth,ht=2.25ex,dp=1ex,leftskip=.3cm, rightskip=.3cm plus1fil]{section in head/foot}%
       Version: \gitAbbrevHash{} \hspace{1em} \insertframenumber/\inserttotalframenumber%
@@ -89,12 +89,12 @@
 % Slide: Title Page
 % =============================================================================
 \title{\LaTeX\ Workshop}
-\subtitle{Spring 2025}
+\subtitle{Fall 2025}
 \author{
-  Northeastern University Wireless Club – \texttt{W1KBN} \\
-  {\small Muhammad Elarbi, Vladyslav Aviedov, Maggie Heaney}
+  Northeastern University Wireless Club - W1KBN \\
+  {\small Muhammad Elarbi, \textit{[Name Here]}, \textit{[Name Here]}}
 }
-\date{March 31, 2025}
+\date{November 3, 2025}
 
 \begin{document}
 
@@ -105,45 +105,36 @@
   \titlepage
   \vspace{-1cm}
   \begin{center}
-    \textbf{Sign in Here:} \\
-    \qrcode{https://l.w1kbn.org/signin} \\
-    {\small \url{https://l.w1kbn.org/signin}}
+    \textbf{Sign in Here:} \\ 
+    \qrcode{https://forms.gle/EukxnYUPSvckBFsg7} \\
+    {\small \href{https://nuwireless.org/signin}{nuwireless.org/signin}}
   \end{center}
 \end{frame}
 
 % =============================================================================
-% Slide: About + QR Codes
+% Slide: About
 % =============================================================================
 \begin{frame}
   \begin{tcolorbox}[colframe=black, colback=blue!10, title=About, center title]
     \begin{itemize}
       \item Regular Meetings: Thursdays, 7 PM @ Hayden Hall, Room 503
-      \item Workshops: Mondays, 7 PM @ Forsyth Hall, Room 201
+      \item Workshops: Mondays, 7:10 PM @ Forsyth Building, Room 236
     \end{itemize}        
   \end{tcolorbox}
+  \begin{tcolorbox}[colframe=black, colback=blue!10, title=Upcoming Workshops, center title]
+    \begin{center}
+      \renewcommand{\arraystretch}{1.2} % spacing between rows
+      \begin{tabular}{|l|c|c|}
+        \hline
+        \textbf{Workshop} & \textbf{Day} & \textbf{Date} \\ \hline
+        Git & Monday & November 10, 2025 \\ \hline
+        Tesla Coils (w/ IEEE NU) & Monday & November 17, 2025 \\ \hline
+      \end{tabular}
+    \end{center}
 
-  \begin{tcolorbox}[colframe=black, colback=blue!10, title=QR Codes \& Links, center title]
-    \begin{minipage}{0.32\textwidth}
-      \centering
-      \textbf{Sign in} \\
-      \qrcode{https://l.w1kbn.org/signin} \\
-      \tiny \url{https://l.w1kbn.org/signin}
-    \end{minipage}
-    \begin{minipage}{0.32\textwidth}
-      \centering
-      \textbf{Slack} \\
-      \qrcode{https://neuwireless.slack.com/join/signup} \\
-      \tiny \url{https://neuwireless.slack.com/join/signup}
-    \end{minipage}
-    \begin{minipage}{0.32\textwidth}
-      \centering
-      \textbf{Mailing List} \\
-      \qrcode{http://eepurl.com/gduCIr} \\
-      \tiny \url{http://eepurl.com/gduCIr}
-    \end{minipage}
-    \begin{itemize}
-      \item Website: \url{https://nuwireless.org/}
-    \end{itemize}
+    \vspace{0.5em}
+    \centering
+    \textbf{Both workshops:} 7:10 PM @ Forsyth Building, Room 236
   \end{tcolorbox}
 \end{frame}
 
@@ -155,7 +146,7 @@
     \begin{itemize}
         \item Understand what \LaTeX{} is and why it matters for students in STEM.
         \item Learn how to start using \LaTeX{} via Overleaf and other tools.
-        \item Walk away ready to create your first \LaTeX\ document — or improve your existing ones.
+        \item Walk away ready to create your first \LaTeX\ document or improve your existing ones.
     \end{itemize}
     \textbf{Structure:}
     \begin{enumerate}
@@ -174,7 +165,7 @@
     \item A \textit{high-quality} typesetting system (used for technical and scientific documentation).
     \item Based on plain text and compiled into PDFs.
     \item Especially powerful for math, citations, figures, complex formatting, and \textit{code}.
-    \item Common in academia, research, and publishing — and many professors encourage it!
+    \item Common in academia, research, and publishing - many professors encourage it!
 \end{itemize}
 \end{frame}
 
@@ -183,13 +174,13 @@
 % =============================================================================
 \begin{frame}{\TeX\ vs \LaTeX{}}
     \begin{itemize}
-        \item \textbf{\href{https://tug.org/}{\TeX}}: A typesetting engine created by Donald Knuth in the late 1970s.
+        \item \textbf{\href{tug.org/}{\TeX}}: A typesetting engine created by Donald Knuth in the late 1970s.
         \begin{itemize}
             \item Low-level, extremely powerful, but hard to use directly.
             \item Similar to how Git is the underlying version control tool.
         \end{itemize}
         
-        \item \textbf{\href{https://www.latex-project.org/}{\LaTeX}}: A markup language and set of macros built on top of \TeX\ (by Leslie Lamport).
+        \item \textbf{\href{latex-project.org/}{\LaTeX}}: A markup language and set of macros built on top of \TeX\ (by Leslie Lamport).
         \begin{itemize}
             \item Makes \TeX\ accessible, structured, and easier to use for most people.
             \item Similar to how GitHub provides a user-friendly interface to Git.
@@ -198,12 +189,12 @@
     \end{frame}
 
 % =============================================================================
-% Slide: Why LaTeX vs Microsoft Word
+% Slide: Why Use LaTeX over something like Microsoft Word?
 % =============================================================================
-\begin{frame}{Why Use \LaTeX{} over Microsoft Word?}
+\begin{frame}{Why Use \LaTeX{} over something like Microsoft Word?}
     \begin{columns}[t] % <-- Align columns at the top
         \begin{column}{0.48\textwidth}
-        \textbf{Microsoft Word (WYSIWYG\\[0.1em] \scriptsize{What You See Is What You Get})}
+        Microsoft Word is \textbf{WYSIWYG}\\[0.1em] \scriptsize{\textbf{W}hat \textbf{Y}ou \textbf{S}ee \textbf{I}s \textbf{W}hat \textbf{Y}ou \textbf{G}et}
         \begin{itemize}
             \item Click-and-drag formatting
             \item Can be inconsistent
@@ -212,7 +203,7 @@
         \end{itemize}
         \end{column}
         \begin{column}{0.48\textwidth}
-        \textbf{\LaTeX{} (WYSIWYT\\[0.1em] \scriptsize{What You See Is What You Type})}
+        \LaTeX{} is \textbf{WYSIWYT}\\[0.1em] \scriptsize{\textbf{W}hat \textbf{Y}ou \textbf{S}ee \textbf{I}s \textbf{W}hat \textbf{Y}ou \textbf{T}ype}
         \begin{itemize}
             \item Precise, consistent output
             \item Separates content from formatting
@@ -224,7 +215,7 @@
     \end{frame}    
 
 % =============================================================================
-% Slide: Real-World Applications
+% Slide: Real-World Applications of LaTeX
 % =============================================================================
 \begin{frame}{Real-World Applications of \LaTeX}
 \begin{itemize}
@@ -242,7 +233,7 @@
 % =============================================================================
 \begin{frame}{How to Use \LaTeX}
     \begin{itemize}
-        \item \textbf{Online:} Overleaf — no setup, collaborative, and free Pro w/ NU email! \\
+        \item \textbf{Online:} Overleaf (no setup, collaborative, and free Pro w/ NU email!) \\
         \textit{We'll be focusing on Overleaf today.}
         \item \textbf{Distributions:}
         \begin{itemize}
@@ -262,9 +253,9 @@
         \item Handles all the heavy lifting “under the hood”; Overleaf takes care of compiling, packages, and setup so you can just focus on writing.
         \item Cloud-based, no install required.
         \item Real-time preview and auto-compile.
-        \item Supports collaboration — great for group projects.
+        \item Supports collaboration; great for group projects.
         \item Version control built-in.
-        \item Connect your Northeastern email for \textbf{free Overleaf Pro}. \url{https://www.overleaf.com/edu/northeastern}
+        \item Connect your Northeastern email for \textbf{free Overleaf Pro}. \href{https://www.overleaf.com/edu/northeastern}{overleaf.com/edu/northeastern}
     \end{itemize}
 \end{frame}    
 
@@ -334,7 +325,7 @@ Hello, world!
         \end{column}
     \end{columns}
     \vspace{1cm}
-    ... and more here: \url{https://www.overleaf.com/learn/latex/Environments}
+    ... and more here: \href{https://www.overleaf.com/learn/latex/Environments}{overleaf.com/learn/latex/Environments}
 \end{frame}
 
 % =============================================================================
@@ -343,7 +334,7 @@ Hello, world!
 \begin{frame}{Let's Head to Overleaf!}
 \centering
 \Huge{\textbf{Time for a live demo!}}\\[1em]
-\Large{\url{https://www.overleaf.com}}
+\Large{\href{https://www.overleaf.com/}{overleaf.com}}
 \end{frame}
 
 % =============================================================================
@@ -351,12 +342,12 @@ Hello, world!
 % =============================================================================
 \begin{frame}{Tools and Resources}
     \begin{itemize}
-        \item \textbf{Overleaf Documentation}: \url{https://www.overleaf.com/learn} — excellent for learning both Overleaf and \LaTeX\ fundamentals, even if you compile locally.
-        \item \textbf{\LaTeX\ Templates}: \url{https://www.overleaf.com/latex/templates} or \url{https://www.latextemplates.com}
-        \item \textbf{Cheat Sheets}: \url{https://quickref.me/latex.html} or \url{https://wch.github.io/latexsheet/}
-        \item \textbf{Detexify}: \url{http://detexify.kirelabs.org} — draw a symbol to get its corresponding \LaTeX\ command.
-        \item \texttt{amsmath}, \texttt{siunitx}, \texttt{minted}, \texttt{circuitikz} — essential packages for math, units, syntax highlighting, and circuit diagrams.
-        \item \textbf{CTAN (Comprehensive TeX Archive Network)}: \url{https://ctan.org} — the main repository for all \LaTeX\ packages, especially useful for local development.
+        \item \textbf{Documentation}: \href{https://www.overleaf.com/learn}{overleaf.com/learn}, excellent for learning both Overleaf and \LaTeX\ fundamentals, even if you develop locally.
+        \item \textbf{Templates}: \href{https://www.overleaf.com/latex/templates}{overleaf.com/latex/templates} or \href{https://latextemplates.com/}{latextemplates.com}
+        \item \textbf{Cheat Sheets}: \href{https://quickref.me/latex.html}{quickref.me/latex.html} or \href{https://wch.github.io/latexsheet/}{wch.github.io/latexsheet}
+        \item \textbf{Detexify}: \href{https://detexify.kirelabs.org/classify.html}{detexify.kirelabs.org}, draw a symbol to get its corresponding \LaTeX\ command.
+        \item Essential packages for math, units, syntax highlighting, and circuit diagrams: \texttt{amsmath}, \texttt{siunitx}, \texttt{minted}, \texttt{circuitikz}
+        \item \textbf{CTAN (Comprehensive \TeX\ Archive Network)}: \href{https://ctan.org/}{ctan.org}, the main repository for all \LaTeX\ packages, especially useful for local development.
     \end{itemize}
 \end{frame}
 
@@ -366,8 +357,8 @@ Hello, world!
 \begin{frame}{Final Thoughts}
     \begin{itemize}
         \item \LaTeX\ may seem intimidating at first, but it's a powerful tool for creating high-quality, consistent documents.
-        \item Overleaf makes it accessible to everyone — but as your skills grow, we encourage you to explore developing locally to better understand what's happening under the hood.
-        \item Embrace the learning curve — your future self will thank you!
+        \item Overleaf makes it accessible to everyone, but as your skills grow, we encourage you to explore developing locally to better understand what's happening under the hood.
+        \item Embrace the learning curve, your future self will thank you!
     \end{itemize}
     \vspace{1em}
     This entire slide deck was compiled locally using \LaTeX\ (Beamer)!\\[1em]
@@ -383,10 +374,10 @@ Hello, world!
         \item Questions? Feel free to reach out!
         \item Workshop Team Emails: \\
         {\href{mailto:elarbi.m@northeastern.edu}{elarbi.m}, 
-        \href{mailto:aviedov.v@northeastern.edu}{aviedov.v}, 
-        \href{mailto:heaney.ma@northeastern.edu}{heaney.ma}}[at]northeastern[d0t]edu
+        \href{mailto:last-name.x@northeastern.edu}{last-name.x}, 
+        \href{mailto:last-name.y@northeastern.edu}{last-name.y}}[at]northeastern[d0t]edu
         \item General Workshop Email: \href{mailto:workshops@nuwireless.org}{workshops}[at]nuwireless[d0t]org
-        \item Website: \url{https://nuwireless.org/}
+        \item Website: \href{https://nuwireless.org}{nuwireless.org}
         \item Location: Hayden Hall, Room 503
     \end{itemize}
     \vspace{1cm}
