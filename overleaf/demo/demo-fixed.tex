@@ -1,0 +1,91 @@
+% =============================================================================
+% demo-fixed.tex, Working Reference Solution
+% =============================================================================
+\documentclass{article} %  FIXED: corrected typo 'artcle' to 'article' 
+
+% Required packages
+\usepackage{amsmath}    % for align, equation, and more.
+\usepackage{siunitx}    % for \SI{}{} units
+\usepackage{graphicx}   % for \includegraphics
+\usepackage{listings}   % for code snippets
+\usepackage{hyperref}   % for clickable links
+\usepackage{float}      % OPTIONAL: to demonstrate the [H] flag in the \begin{figure} example.
+\usepackage[T1]{fontenc} % OPTIONAL: straight double quotes in \begin{lstlisting}
+
+\title{Live LaTeX Demo: Fixed Reference}
+\author{Northeastern University Wireless Club}
+\date{November 3, 2025}
+
+\begin{document} % FIXED: added missing \begin{document}
+\maketitle
+
+\tableofcontents % FIXED: added Table of Contents
+\clearpage       % FIXED: start content on a fresh page
+
+% =============================================================================
+\section{Lists} % FIXED: added section
+% =============================================================================
+
+Three benefits of \LaTeX: % FIXED: replaced ??? with proper itemize list 
+\begin{itemize}
+  \item Consistent, professional typesetting.
+  \item Excellent math support.
+  \item Version-control friendly (plain text).
+\end{itemize}
+
+Three steps to compile a document: % FIXED: corrected mismatched environment (itemize --> enumerate)
+\begin{enumerate}
+  \item Write your content in a \texttt{.tex} file.
+  \item Compile with a LaTeX engine like Overleaf
+  \item Review the PDF and iterate.
+\end{enumerate}
+
+% =============================================================================
+\section{Math Notation} % FIXED: added section
+% =============================================================================
+
+\begin{equation}\label{eq:einstein}
+E = mc^2 % FIXED: wrapped math in equation environment
+\end{equation}
+
+We referenced Equation~\eqref{eq:einstein} above.
+
+% =============================================================================
+\section{Units (siunitx)} % FIXED: added section
+% =============================================================================
+
+A sample velocity: \SI{5}{\meter\per\second}. % FIXED: siunitx package added
+
+% =============================================================================
+\section{Code Snippet} % FIXED: added section
+% =============================================================================
+
+\begin{lstlisting}[language=Python]
+def hello():
+    print("Hello, LaTeX!")
+hello()
+\end{lstlisting}
+
+% =============================================================================
+\section{Figure} % FIXED: added section
+% =============================================================================
+
+\begin{figure}[h] % The [h] option tells LaTeX to try placing the figure "here" in the text. 
+                  % However, this is only a "request", not a gurantee. Figures are still treated as floating objects.
+                  % LaTeX may move them to the top or bottom of a page for better layout.
+                  % In this case, it placed the image on the following page.
+  \centering
+  \includegraphics[width=0.5\textwidth]{bunny.jpg} % FIXED: requires uploaded image 
+  \caption{Bunny demonstrating single-ear radio transmission.}
+  \label{fig:bunny}
+\end{figure}
+
+As shown in Figure~\ref{fig:bunny}, the subject exhibits antenna-like behavior. % FIXED: reference compiles correctly
+
+% =============================================================================
+\section{Hyperlinks} % FIXED: added section heading 
+% =============================================================================
+
+Overleaf home page: \href{https://www.overleaf.com/}{\texttt{overleaf.com}}. % FIXED: added hyperref and \href 
+
+\end{document} % FIXED: properly closed the document environment

@@ -1,0 +1,87 @@
+% =============================================================================
+% demo-broken.texx, Intentionally Broken Version
+% =============================================================================
+% GOAL: Walk through this file live and we fix it together.
+% Look for [CUE:] comments to guide what needs to be added or corrected.
+% =============================================================================
+
+\documentclass{artcle} % [CUE:] Typo here, should be 'article'
+
+% [CUE:] Add the required packages below when compilation errors appear.
+% \usepackage{amsmath}    % for align, equation, and more.
+% \usepackage{siunitx}    % for \SI{}{} units
+% \usepackage{graphicx}   % for \includegraphics
+% \usepackage{listings}   % for code snippets
+% \usepackage{hyperref}   % for clickable links
+% \usepackage{float}      % OPTIONAL: to demonstrate [H] placement flag
+% \usepackage[T1]{fontenc} % OPTIONAL: straight double quotes in listings
+
+\title{Live LaTeX Demo: Fix Me!}
+\author{Northeastern University Wireless Club}
+\date{November 3, 2025}
+
+% [CUE:] Missing \begin{document} and \maketitle below
+
+% [CUE:] Insert \tableofcontents and \clearpage after the title page
+
+% =============================================================================
+\section{Lists} % [CUE:] Section added in fixed version
+% =============================================================================
+
+% [CUE:] Replace ??? with an itemize list of 3 benefits of LaTeX.
+???
+  
+% [CUE:] Create an enumerate list of 3 steps to compile a document.
+\begin{itemize}
+  \item Step 1
+  \item Step 2
+\end{enumerate} % [CUE:] Mismatch, opened itemize, closed enumerate
+
+% =============================================================================
+\section{Math Notation} % [CUE:] Add amsmath and wrap math properly
+% =============================================================================
+
+% [CUE:] Convert this into a displayed equation and label it 'eq:einstein'
+E = mc^2
+
+% [CUE:] Add a sentence referencing the equation by label
+
+% =============================================================================
+\section{Units (siunitx)} % [CUE:] Add siunitx and fix syntax
+% =============================================================================
+
+% [CUE:] Express velocity using \SI{}{}
+Velocity: \SI{5}{\meter\per\second}.
+
+% =============================================================================
+\section{Code Snippet} % [CUE:] Use listings, set language=Python
+% =============================================================================
+
+% [CUE:] Add the code snippet with proper syntax highlighting.
+\begin{lstlisting}
+def hello():
+    print("Hello, LaTeX!")
+\end{lstlisting}
+
+% =============================================================================
+\section{Figure} % [CUE:] Add figure with graphicx and caption
+% =============================================================================
+
+% [CUE:] Insert a figure with a bunny image and label it 'fig:bunny'
+\begin{figure}
+  \centering
+  \includegraphics{bunny} % [CUE:] Missing width and file extension
+  \caption{Bunny something something.} % [CUE:] Update caption
+  \label{fig:bunny}
+\end{figure}
+
+% [CUE:] Add a sentence referencing Figure~\ref{fig:bunny}
+
+% =============================================================================
+\section{Hyperlinks} % [CUE:] Add hyperref and clickable link
+% =============================================================================
+
+% [CUE:] Convert this plain URL into a clickable link with \href
+Visit: https://www.overleaf.com/
+
+% [CUE:] Properly end the document below

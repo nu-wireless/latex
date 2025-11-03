@@ -1,0 +1,62 @@
+\documentclass{article}
+
+\usepackage{graphicx}   % for figures
+\usepackage{hyperref}   % for hyperlinks
+
+\title{Mini Report: Bunny RF Resistance Test}
+\author{Your Name}
+\date{November 3, 2025}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Introduction}
+This brief report tests your ability to structure a document in \LaTeX{} using
+sections, lists, equations, a figure, a table, and a URL.
+
+\section{Methods}
+\subsection{Materials and Steps}
+\begin{itemize}
+  \item Power supply
+  \item Multimeter
+  \item Connecting wires
+\end{itemize}
+
+\begin{enumerate}
+  \item Apply a small voltage ($V$) across the bunny’s “antenna” section.
+  \item Measure the resulting current ($I$) through the material.
+  \item Compute resistance using Equation~(\ref{eq:ohm}).
+\end{enumerate}
+
+\section{Results}
+According to Ohm’s Law, resistance $R$ is
+\begin{equation}\label{eq:ohm}
+R = \frac{V}{I}.
+\end{equation}
+
+\noindent Example measurements:
+\begin{center}
+\begin{tabular}{l l l}
+Trial & $V$ (V) & $I$ (mA) \\
+1 & 5.0 & 2.5 \\
+2 & 5.0 & 2.4 \\
+3 & 5.0 & 2.6 \\
+\end{tabular}
+\end{center}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.5\textwidth]{bunny.jpg}
+  \caption{Bunny during low-frequency resistance measurement.}
+  \label{fig:bunny}
+\end{figure}
+
+As seen in Figure~\ref{fig:bunny}, the subject maintained a steady pose during testing.
+
+\section{Conclusion}
+This one-page report demonstrates basic \LaTeX{} skills: document structure, lists,
+math, figures, tables, and hyperlinks. For more information, visit
+\url{https://www.overleaf.com}.
+
+\end{document}
