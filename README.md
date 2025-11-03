@@ -7,7 +7,7 @@ This repository contains the slide deck and related materials used for our LaTeX
 
 ## Workshop Slides
 
-A precompiled PDF of the slide deck is available in the [Releases](https://github.com/melarb/nuwc-latex/releases) section for quick viewing.
+A precompiled PDF of the slide deck is available in the [Releases](https://github.com/nu-wireless/latex/releases/tag/2025-fall) section for quick viewing.
 
 ---
 
