@@ -1,16 +1,18 @@
 % =============================================================================
-% LaTeX Workshop Slide Deck — Northeastern University Wireless Club
+% LaTeX Workshop Slide Deck, Northeastern University Wireless Club
 % =============================================================================
-\documentclass[x11names]{beamer} % Global option [x11names] avoids xcolor clash
-\usetheme{Madrid}
-\usecolortheme{beaver}
 
 % =============================================================================
-% Customization: Set a darker gray-ish color for the "section in head/foot"
-% (This is the bottom-right footer column used for displaying the version (Git commit hash)
-% and the frame numbering.)
+% Beamer Theme Customizations
 % =============================================================================
-\setbeamercolor{section in head/foot}{bg=gray!60, fg=black}
+\documentclass[x11names]{beamer}                            % Global option [x11names] avoids xcolor clash
+\usetheme{Madrid}
+\usecolortheme{beaver}
+\setbeamertemplate{navigation symbols}{}                    % Hides navigation buttons at bottom-right
+\setbeamercovered{transparent}                              % Make hidden items (e.g., \onslide, \only) semi-transparent
+\setbeamercolor{section in head/foot}{bg=gray!60, fg=black} % Set a darker gray-ish color for the "section in head/foot".
+                                                            % This is the bottom-right footer column used for displaying 
+                                                            % the version (Git commit hash) and the page numbering.
 
 
 % =============================================================================
@@ -26,7 +28,8 @@
 \usepackage{mdframed}   % For framed environments
 \usepackage{minted}     % For syntax-highlighted code blocks
 \usepackage{tikz}       % For drawing (used in mdframed titles)
-
+\usepackage{lastpage}   % For referencing the total number of pages, used in footer as \pageref{LastPage}
+                        % requires compiling the document twice to resolve the total page count correctly
 % =============================================================================
 % Versioning (Git commit hash for version info in footer)
 % =============================================================================
@@ -80,13 +83,21 @@
       Fall 2025%
     \end{beamercolorbox}%
     \begin{beamercolorbox}[wd=.30\paperwidth,ht=2.25ex,dp=1ex,leftskip=.3cm, rightskip=.3cm plus1fil]{section in head/foot}%
-      Version: \gitAbbrevHash{} \hspace{1em} \insertframenumber/\inserttotalframenumber%
+      Version: \gitAbbrevHash{} \hspace{1em} \insertpagenumber/\pageref{LastPage}%
     \end{beamercolorbox}}%
   \vskip0pt%
 }
 
 % =============================================================================
-% Slide: Title Page
+% Compilation Notes
+% =============================================================================
+% Since the footer now uses \insertpagenumber/\pageref{LastPage} (instead of
+% \insertframenumber), LaTeX must compile the document twice to correctly resolve
+% the total page count reference provided by the 'lastpage' package.
+% (First pass writes the page labels; second pass reads and resolves them.)
+
+% =============================================================================
+% Title Page Information 
 % =============================================================================
 \title{\LaTeX\ Workshop}
 \subtitle{Fall 2025}
@@ -99,7 +110,7 @@
 \begin{document}
 
 % =============================================================================
-% Slide: Sign-In with QR Code
+% Slide: Title Page + Sign-In with QR Code
 % =============================================================================
 \begin{frame}
   \titlepage
@@ -115,13 +126,17 @@
 % Slide: About
 % =============================================================================
 \begin{frame}
-  \begin{tcolorbox}[colframe=black, colback=blue!10, title=About, center title]
+  \onslide<1->{
+    \begin{tcolorbox}[colframe=black, colback=blue!10, title=About, center title]
     \begin{itemize}
       \item Regular Meetings: Thursdays, 7 PM @ Hayden Hall, Room 503
       \item Workshops: Mondays, 7:10 PM @ Forsyth Building, Room 236
     \end{itemize}        
   \end{tcolorbox}
-  \begin{tcolorbox}[colframe=black, colback=blue!10, title=Upcoming Workshops, center title]
+  }
+
+  \onslide<2->{
+    \begin{tcolorbox}[colframe=black, colback=blue!10, title=Upcoming Workshops, center title]
     \begin{center}
       \renewcommand{\arraystretch}{1.2} % spacing between rows
       \begin{tabular}{|l|c|c|}
@@ -136,6 +151,7 @@
     \centering
     \textbf{Both workshops:} 7:10 PM @ Forsyth Building, Room 236
   \end{tcolorbox}
+  }
 \end{frame}
 
 % =============================================================================
@@ -144,55 +160,62 @@
 \begin{frame}{Workshop Goals and Structure}
     \textbf{Goals:}
     \begin{itemize}
-        \item Understand what \LaTeX{} is and why it matters for students in STEM.
-        \item Learn how to start using \LaTeX{} via Overleaf and other tools.
-        \item Walk away ready to create your first \LaTeX\ document or improve your existing ones.
+        \item<1-> Understand what \LaTeX{} is and why it matters for students in STEM.
+        \item<2-> Learn how to write and compile \LaTeX{} documents using Overleaf and other editors.
+        \item<3-> Walk away having created your first \LaTeX\ document or knowing how to improve your existing ones.
     \end{itemize}
     \textbf{Structure:}
     \begin{enumerate}
-        \item What is \LaTeX{}? \textit{(The Why)}
-        \item How to Use \LaTeX{} \textit{(The How)}
-        \item Hands-On Examples in Overleaf
-        \item Helpful Resources \& Tips
+        \item<4-> What is \LaTeX{}? \textit{(The What)}
+        \item<5-> Why use \LaTeX{}? \textit{(The Why)}
+        \item<6-> Writing and Compiling \LaTeX{} \textit{(The How)}
+        \begin{itemize}
+          \item<6-> Hands-On Examples in Overleaf
+        \end{itemize}
+        \item<7-> Helpful Resources \& Tips
     \end{enumerate}
 \end{frame}
 
 % =============================================================================
-% Slide: What is LaTeX?
+% Slide: What is LaTeX
 % =============================================================================
-\begin{frame}{What is \LaTeX{}} 
+\begin{frame}{What is \LaTeX{}}
 \begin{itemize}
-    \item A \textit{high-quality} typesetting system (used for technical and scientific documentation).
+    \item A typesetting system.
     \item Based on plain text and compiled into PDFs.
-    \item Especially powerful for math, citations, figures, complex formatting, and \textit{code}.
+    \item Especially powerful for complex formatting, math, citations, figures, and \textit{code}.
     \item Common in academia, research, and publishing - many professors encourage it!
 \end{itemize}
+\begin{tcolorbox}[colback=gray!10, colframe=gray!40, title=From learnlatex.org]
+\LaTeX{} can be scary for new users as it is not a word processor, and because it is not a single program.
+\end{tcolorbox}
+% \LaTeX{} can be scary for new users as it is not a word processor, and because it is not a single program.\footnote{\url{https://www.learnlatex.org/en/}}
 \end{frame}
+
 
 % =============================================================================
 % Slide: TeX vs LaTeX
 % =============================================================================
 \begin{frame}{\TeX\ vs \LaTeX{}}
-    \begin{itemize}
-        \item \textbf{\href{tug.org/}{\TeX}}: A typesetting engine created by Donald Knuth in the late 1970s.
-        \begin{itemize}
-            \item Low-level, extremely powerful, but hard to use directly.
-            \item Similar to how Git is the underlying version control tool.
-        \end{itemize}
-        
-        \item \textbf{\href{latex-project.org/}{\LaTeX}}: A markup language and set of macros built on top of \TeX\ (by Leslie Lamport).
-        \begin{itemize}
-            \item Makes \TeX\ accessible, structured, and easier to use for most people.
-            \item Similar to how GitHub provides a user-friendly interface to Git.
-        \end{itemize}
-    \end{itemize}
-    \end{frame}
+  \textbf{\href{https://tug.org/}{\TeX}}: A typesetting engine created by Donald Knuth in the late 1970s.
+  \begin{itemize}
+    \item Low-level, extremely powerful, but hard to use directly.
+    \item Similar to how Git is the underlying version control tool.
+  \end{itemize}
+  
+  \textbf{\href{https://www.latex-project.org/}{\LaTeX}}: A markup language and set of macros built on top of \TeX\ (by Leslie Lamport).
+  \begin{itemize}
+    \item You write LaTeX code and compile it using a TeX system (like Overleaf, TeXShop, etc.)
+    \item Makes \TeX\ accessible, structured, and easier to use for most people.
+    \item Similar to how GitHub provides a user-friendly ``interface" to Git.
+  \end{itemize}
+\end{frame}
 
 % =============================================================================
 % Slide: Why Use LaTeX over something like Microsoft Word?
 % =============================================================================
 \begin{frame}{Why Use \LaTeX{} over something like Microsoft Word?}
-    \begin{columns}[t] % <-- Align columns at the top
+    \begin{columns}[t] % <-- align the tops of the columns, so both columns start at the same vertical height
         \begin{column}{0.48\textwidth}
         Microsoft Word is \textbf{WYSIWYG}\\[0.1em] \scriptsize{\textbf{W}hat \textbf{Y}ou \textbf{S}ee \textbf{I}s \textbf{W}hat \textbf{Y}ou \textbf{G}et}
         \begin{itemize}
@@ -229,21 +252,41 @@
 
 
 % =============================================================================
-% Slide: How to Use LaTeX
+% Slide: How to Write and Compile LaTeX
 % =============================================================================
-\begin{frame}{How to Use \LaTeX}
-    \begin{itemize}
-        \item \textbf{Online:} Overleaf (no setup, collaborative, and free Pro w/ NU email!) \\
-        \textit{We'll be focusing on Overleaf today.}
-        \item \textbf{Distributions:}
+\begin{frame}{How to Write and Compile \LaTeX}
+  % Option 1: Online
+  \only<1>{
+    \begin{tcolorbox}[colback=gray!10, colframe=black, title=Online (Simplest)]
+      \textbf{Overleaf}: runs entirely in your browser, no setup, collaborative, and free Pro with Northeastern University email!
+    \end{tcolorbox}
+    \begin{center}
+      \Large We'll be focusing on Overleaf today.
+    \end{center}
+  }
+  % Option 2: Local Development
+  \only<2>{
+    \begin{tcolorbox}[colback=gray!10, colframe=black, title=Local Development (Advanced)]
+      \scriptsize
+      \textbf{Requires two parts:}
+      \begin{enumerate}
+        \item \textbf{A \LaTeX{} Distribution}: provides compilers like \texttt{pdflatex} and all core/built-in packages like \texttt{amsmath}.
         \begin{itemize}
-            \item macOS: \texttt{MacTeX}
-            \item Linux: \texttt{TeX Live}
-            \item Windows: \texttt{MiKTeX}, \texttt{TeX Live}
+          \item macOS: \texttt{MacTeX}, Linux: \texttt{TeX Live}
+          \item Windows: \texttt{MiKTeX} or \texttt{TeX Live}
         \end{itemize}
-        \item \textbf{Editors:} VS Code (\href{https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop}{\texttt{latex-workshop}}), Vim (\texttt{vimtex}), Emacs (\texttt{AUCTeX})
-    \end{itemize}
-\end{frame}    
+        \item \textbf{An Editor or IDE}: where you write your \LaTeX\ code.
+        \begin{itemize}
+          \item VS Code + \href{https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop}{\texttt{LaTeX Workshop}} (general-purpose code editor with \LaTeX\ extension)
+          \item TeXstudio (cross-platform LaTeX IDE)
+          \item TeXShop (macOS LaTeX IDE included with MacTeX)
+          \item Vim + \texttt{vimtex} / Emacs + \texttt{AUCTeX} (advanced text editors with LaTeX plugins)
+        \end{itemize}
+      \end{enumerate}
+      The editor calls a compiler (e.g., \texttt{pdflatex}) provided by the distribution to generate your PDF.
+    \end{tcolorbox}
+    }
+\end{frame}
 
 % =============================================================================
 % Slide: Why Overleaf is Perfect for Beginners
@@ -263,23 +306,25 @@
 % Slide: Basic Document Structure
 % =============================================================================
 \begin{frame}[fragile]{Basic Document Structure}
-    \begin{columns}[t] % <-- Align columns at the top
+    \begin{columns}[t] % <-- align the tops of the columns, so both columns start at the same vertical height
         \begin{column}{0.55\textwidth}
-        \textbf{Source (\LaTeX\ Code):}
-        \begin{minted}[fontsize=\scriptsize]{latex}
+          \textbf{Source (\LaTeX\ Code):}
+          % Keep the code inside minted flush-left (no indentation) so it renders fully left-aligned
+          % on the slide for optimal readability when compiled.
+          % Minted is verbatim, so any leading spaces will appear in the output.
+          \begin{minted}[fontsize=\scriptsize]{latex}
 \documentclass{article}
 \begin{document}
 Hello, world!
 \end{document}
-        \end{minted}
+          \end{minted}
         \end{column}
-
         \begin{column}{0.45\textwidth}
-        \textbf{Output:}
-        \vspace{1em}
-        \fbox{\parbox{.9\linewidth}{Hello, world!}}
+          \textbf{Output:}
+          \vspace{1em}
+          \fbox{\parbox{.9\linewidth}{Hello, world!}}
         \end{column}
-    \end{columns}
+      \end{columns}
 \end{frame}
 
     
@@ -287,9 +332,12 @@ Hello, world!
 % Slide: Common LaTeX Environments
 % =============================================================================
 \begin{frame}[fragile]{Common LaTeX Environments}
-    \begin{columns}[t] % <-- Align columns at the top
+    \begin{columns}[t] % <-- align the tops of the columns, so both columns start at the same vertical height
         \begin{column}{0.55\textwidth}
         \textbf{Source (\LaTeX\ Code):}
+        % Keep the code inside minted flush-left (no indentation) so it renders fully left-aligned
+        % on the slide for optimal readability when compiled.
+        % Minted is verbatim, so any leading spaces will appear in the output.
         \begin{minted}[fontsize=\scriptsize]{latex}
 \begin{itemize}
     \item Bullet points
@@ -328,6 +376,13 @@ Hello, world!
     ... and more here: \href{https://www.overleaf.com/learn/latex/Environments}{overleaf.com/learn/latex/Environments}
 \end{frame}
 
+\begin{frame} {\LaTeX\ Quirks}
+  \begin{itemize}
+    \item Quotes
+    \item Delimeters
+  \end{itemize}
+\end{frame}
+
 % =============================================================================
 % Slide: Live Example / Demo
 % =============================================================================
@@ -338,16 +393,17 @@ Hello, world!
 \end{frame}
 
 % =============================================================================
-% Slide: Tools and Resources
+% Slide: Resources and Tools
 % =============================================================================
-\begin{frame}{Tools and Resources}
+\begin{frame}{Resources and Tools}
     \begin{itemize}
         \item \textbf{Documentation}: \href{https://www.overleaf.com/learn}{overleaf.com/learn}, excellent for learning both Overleaf and \LaTeX\ fundamentals, even if you develop locally.
-        \item \textbf{Templates}: \href{https://www.overleaf.com/latex/templates}{overleaf.com/latex/templates} or \href{https://latextemplates.com/}{latextemplates.com}
+        \item \textbf{Tutorials}: \href{https://tug.org/interest.html#doc}{Extensive list} by TUG (\TeX\ Users Group), Youtube tutorials by \href{https://www.youtube.com/playlist?list=PLHXZ9OQGMqxcWWkx2DMnQmj5os2X5ZR73}{Dr. Trefor Bazett}
+        \item \textbf{Templates}: \href{https://github.com/melarb/latex-template}{Muhammad's} homework template, \href{https://www.overleaf.com/latex/templates}{overleaf.com/latex/templates} or \href{https://latextemplates.com/}{latextemplates.com}
         \item \textbf{Cheat Sheets}: \href{https://quickref.me/latex.html}{quickref.me/latex.html} or \href{https://wch.github.io/latexsheet/}{wch.github.io/latexsheet}
         \item \textbf{Detexify}: \href{https://detexify.kirelabs.org/classify.html}{detexify.kirelabs.org}, draw a symbol to get its corresponding \LaTeX\ command.
-        \item Essential packages for math, units, syntax highlighting, and circuit diagrams: \texttt{amsmath}, \texttt{siunitx}, \texttt{minted}, \texttt{circuitikz}
         \item \textbf{CTAN (Comprehensive \TeX\ Archive Network)}: \href{https://ctan.org/}{ctan.org}, the main repository for all \LaTeX\ packages, especially useful for local development.
+        \item Essential packages for math, units, syntax highlighting, and circuit diagrams: \texttt{amsmath}, \texttt{siunitx}, \texttt{minted}, \texttt{circuitikz}
     \end{itemize}
 \end{frame}
 
@@ -382,7 +438,7 @@ Hello, world!
     \end{itemize}
     \vspace{1cm}
     \begin{flushright}
-        \footnotesize{© 2025 Northeastern Wireless Club} \\
+        \footnotesize{© 2025 Northeastern University Wireless Club} \\
         \footnotesize{Design: \href{https://melarbi.com}{Muhammad Elarbi}, based on \LaTeX\ Beamer}\\
     \end{flushright}
 \end{frame}
