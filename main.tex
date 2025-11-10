@@ -14,7 +14,7 @@
                                                             % This is the bottom-right footer column used for displaying 
                                                             % the version (Git commit hash) and the page numbering.
 
-
+                                                            
 % =============================================================================
 % Packages
 % =============================================================================
@@ -30,6 +30,7 @@
 \usepackage{tikz}       % For drawing (used in mdframed titles)
 \usepackage{lastpage}   % For referencing the total number of pages, used in footer as \pageref{LastPage}
                         % requires compiling the document twice to resolve the total page count correctly
+
 % =============================================================================
 % Versioning (Git commit hash for version info in footer)
 % =============================================================================
@@ -70,18 +71,23 @@
 % =============================================================================
 % Footer Configuration
 % =============================================================================
+% Customizes the footer to display organization, workshop name, semester, version, and page number
 \setbeamertemplate{footline}{%
   \leavevmode%
   \hbox{
+    % Left: Organization Name
     \begin{beamercolorbox}[wd=.35\paperwidth,ht=2.25ex,dp=1ex,leftskip=.3cm]{author in head/foot}%
       Northeastern University Wireless Club%
     \end{beamercolorbox}%
+    % Center: Workshop Name
     \begin{beamercolorbox}[wd=.20\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
       \LaTeX\ Workshop%
     \end{beamercolorbox}%
+    % Center: Semester Information
     \begin{beamercolorbox}[wd=.15\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
       Fall 2025%
     \end{beamercolorbox}%
+    % Right: Version (Git commit hash) and Page Number
     \begin{beamercolorbox}[wd=.30\paperwidth,ht=2.25ex,dp=1ex,leftskip=.3cm, rightskip=.3cm plus1fil]{section in head/foot}%
       Version: \gitAbbrevHash{} \hspace{1em} \insertpagenumber/\pageref{LastPage}%
     \end{beamercolorbox}}%
@@ -104,7 +110,7 @@
 \author{
   Northeastern University Wireless Club - W1KBN \\
   {\small Muhammad Elarbi, Robert Halpern}
-}
+  }
 \date{November 3, 2025}
 
 \begin{document}
@@ -123,7 +129,7 @@
 \end{frame}
 
 % =============================================================================
-% Slide: About
+% Slide: About Us 
 % =============================================================================
 \begin{frame}
   \onslide<1->{
@@ -185,35 +191,45 @@
 % Slide: What is LaTeX
 % =============================================================================
 \begin{frame}{What is \LaTeX{}}
-\begin{itemize}
-    \item<1-> A typesetting system.
-    \item<2-> Based on plain text and compiled into PDFs.
-    \item<3-> Especially powerful for complex formatting, math, citations, figures, and \textit{code}.
-    \item<4-> Common in academia, research, and publishing - many professors encourage it!
-\end{itemize}
-\begin{tcolorbox}[colback=gray!10, colframe=gray!40, title=From learnlatex.org]
-\LaTeX{} can be scary for new users as it is not a word processor, and because it is not a single program.
-\end{tcolorbox}
-% \LaTeX{} can be scary for new users as it is not a word processor, and because it is not a single program.\footnote{\url{https://www.learnlatex.org/en/}}
+  \begin{block}{Pronunciation\footnotesize\footnotemark}
+    \centering
+    \large \textbf{``Lah-tech" or ``Lay-tech"}
+  \end{block}
+  \footnotetext{\url{https://www.latex-project.org/about/}}
+  \begin{itemize}
+    \item<2-> A typesetting system.
+    \item<3-> Based on plain text and compiled into PDFs.
+    \item<4-> Especially powerful for complex formatting, math, citations, figures, and \textit{code}.
+    \item<5-> Common in academia, research, and publishing - many professors encourage it!
+  \end{itemize}
+  \onslide<6->{
+    \begin{tcolorbox}[colback=gray!10, colframe=gray!40, title=From learnlatex.org]
+      \LaTeX{} can be scary for new users as it is not a word processor, and because it is not a single program.
+    \end{tcolorbox}
+    }
+    % \LaTeX{} can be scary for new users as it is not a word processor, and because it is not a single program.\footnote{\url{https://www.learnlatex.org/en/}}
 \end{frame}
-
 
 % =============================================================================
 % Slide: TeX vs LaTeX
 % =============================================================================
 \begin{frame}{\TeX\ vs \LaTeX{}}
-  \textbf{\href{https://tug.org/}{\TeX}}: A typesetting engine created by Donald Knuth in the late 1970s.
-  \begin{itemize}
-    \item Low-level, extremely powerful, but hard to use directly.
-    \item Similar to how Git is the underlying version control tool.
-  \end{itemize}
-  
-  \textbf{\href{https://www.latex-project.org/}{\LaTeX}}: A markup language and set of macros built on top of \TeX\ (by Leslie Lamport).
-  \begin{itemize}
-    \item You write LaTeX code and compile it using a TeX system (like Overleaf, TeXShop, etc.)
-    \item Makes \TeX\ accessible, structured, and easier to use for most people.
-    \item Similar to how GitHub provides a user-friendly ``interface" to Git.
-  \end{itemize}
+  \onslide<1->{
+    \textbf{\href{https://tug.org/}{\TeX}}: A typesetting engine created by Donald Knuth in the late 1970s.
+    \begin{itemize}
+      \item Low-level, extremely powerful, but hard to use directly.
+      \item Similar to how Git is the underlying version control tool.
+    \end{itemize}
+  }
+  \vspace{30}
+  \onslide<2->{
+    \textbf{\href{https://www.latex-project.org/}{\LaTeX}}: A markup language and set of macros built on top of \TeX\ (by Leslie Lamport).
+    \begin{itemize}
+      \item You write LaTeX code and compile it using a TeX system (like Overleaf, TeXShop, etc.)
+      \item Makes \TeX\ accessible, structured, and easier to use for most people.
+      \item Similar to how GitHub provides a user-friendly ``interface" to Git.
+    \end{itemize}
+  }
 \end{frame}
 
 \section{Why use \LaTeX{}? \textit{(The Why)}}
@@ -222,39 +238,66 @@
 % =============================================================================
 \begin{frame}{Why Use \LaTeX{} over something like Microsoft Word?}
     \begin{columns}[t] % <-- align the tops of the columns, so both columns start at the same vertical height
-        \begin{column}{0.48\textwidth}
-        Microsoft Word is \textbf{WYSIWYG}\\[0.1em] \scriptsize{\textbf{W}hat \textbf{Y}ou \textbf{S}ee \textbf{I}s \textbf{W}hat \textbf{Y}ou \textbf{G}et}
-        \begin{itemize}
+      \onslide<1->{
+        \begin{column}{0.5\textwidth}
+          Microsoft Word is \textbf{WYSIWYG}\\[0.1em] \scriptsize{\textbf{W}hat \textbf{Y}ou \textbf{S}ee \textbf{I}s \textbf{W}hat \textbf{Y}ou \textbf{G}et}
+          \begin{itemize}
             \item Click-and-drag formatting
             \item Can be inconsistent
             \item Formatting breaks easily
             \item Great for casual documents
-        \end{itemize}
-        \end{column}
-        \begin{column}{0.48\textwidth}
-        \LaTeX{} is \textbf{WYSIWYT}\\[0.1em] \scriptsize{\textbf{W}hat \textbf{Y}ou \textbf{S}ee \textbf{I}s \textbf{W}hat \textbf{Y}ou \textbf{T}ype}
-        \begin{itemize}
+          \end{itemize}
+      \end{column}
+      }
+      \onslide<2->{
+        \begin{column}{0.5\textwidth}
+          \LaTeX{} is \textbf{WYSIWYT}\\[0.1em] \scriptsize{\textbf{W}hat \textbf{Y}ou \textbf{S}ee \textbf{I}s \textbf{W}hat \textbf{Y}ou \textbf{T}ype}
+          \begin{itemize}
             \item Precise, consistent output
             \item Separates content from formatting
             \item Portable, version-controlled
             \item Professional, especially for STEM
-        \end{itemize}
+          \end{itemize}
         \end{column}
+      }
     \end{columns}
-    \end{frame}    
+\end{frame}    
 
 % =============================================================================
 % Slide: Real-World Applications of LaTeX
 % =============================================================================
 \begin{frame}{Real-World Applications of \LaTeX}
-\begin{itemize}
-    \item Resumes and CVs
-    \item Lab reports and technical documentation
-    \item Research papers, journal articles
-    \item Thesis/dissertation formatting
-    \item 
-    \item Slide decks, like this one (\LaTeX\ Beamer)!
-\end{itemize}
+  \only<1>{
+    \begin{itemize}
+      \item R\'esum\'es and CVs
+      \item Lab reports
+      \item Typesetting your class notes (more on this in the next slide)
+      \item Exam cheat sheets
+      \item Technical documentation
+      \item Research papers, journal articles
+      \item Thesis/dissertation formatting
+      \item Chechecklists, Bills of Materials (BOMs), and similar documents
+      \item Slide decks, like this one (\LaTeX\ Beamer)!
+    \end{itemize}
+    }
+    
+  \only<2>{
+    When people talk about typesetting class notes in \LaTeX, it usually falls into two categories:
+    \begin{enumerate}
+      \item Taking notes in \LaTeX\ \textbf{in real time} during lecture, or
+      \item Taking notes in a notebook or word processor and typesetting them after class
+    \end{enumerate}
+    The second option is far more common because real-time note-taking is extremely difficult, even for experienced \LaTeX\ users. However, it \textit{is} possible.
+    A \href{https://www.quora.com/Does-anybody-use-LaTeX-to-take-notes-especially-during-class-If-not-what-do-you-use-especially-when-you-need-to-write-down-equations/answer/Gilles-Castel-1}{Quora question}, answered by Gilles Castel:
+    \begin{quote}
+      \textit{Can people actually keep up with note-taking in mathematics lectures with \LaTeX?}
+    \end{quote}
+    led to an article in which he describes his real-time workflow, noting:
+    \begin{quote}
+      “These lecture notes — including figures — are made while attending the lecture and have not been edited afterwards.”
+    \end{quote}
+    Full article: \url{https://castel.dev/post/lecture-notes-1/}
+  }
 \end{frame}
 
 \section{Writing and Compiling \LaTeX{} \textit{(The How)}}
@@ -334,7 +377,6 @@ Hello, world!
       \end{columns}
 \end{frame}
 
-    
 % =============================================================================
 % Slide: Common LaTeX Environments
 % =============================================================================
@@ -428,9 +470,9 @@ Hello, world!
         \item Overleaf makes it accessible to everyone, but as your skills grow, we encourage you to explore developing locally to better understand what's happening under the hood.
         \item Embrace the learning curve, your future self will thank you!
     \end{itemize}
-    \vspace{1em}
-    This entire slide deck was compiled locally using \LaTeX\ (Beamer)!\\[1em]
-    \textbf{This workshop is revived after its last run in Fall 2020. Special thanks to \href{https://jack.leightcap.com/}{Jack Leightcap} (President '22) and Connor Northway (VP '22).}
+    \begin{center}
+      \large This entire slide deck was compiled locally using \LaTeX\ (Beamer)!
+    \end{center}
 \end{frame}
 
 % =============================================================================

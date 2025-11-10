@@ -31,7 +31,7 @@ Officers with repository access can clone and compile directly. External users w
 
 To compile the slide deck locally, make sure you have:
 
-* A LaTeX distribution such as **TeX Live**, **MiKTeX**, or **MacTeX**
+* A LaTeX distribution such as TeX Live, MiKTeX, or MacTeX
 * The `minted` package
   (requires Python and Pygments; compile with the `--shell-escape` flag)
 * A LaTeX editor such as VS Code with the
@@ -93,9 +93,10 @@ The frame count was previously used, but since introducing overlays into the sli
 
 ```
 nuwc-latex/
-├── main.tex         # Main Beamer slide deck source file
+├── overleaf/        # Live Demo files, challenge file (pending time), and examples
 ├── .gitignore       # Git ignore file
 ├── LICENSE          # License file
+├── main.tex         # Main Beamer slide deck source file
 └── README.md        # This README file
 ```
 
@@ -112,19 +113,9 @@ nuwc-latex/
 ## Questions
 
 If you have any questions or feedback, please reach out:
-
-* **Workshop Email:** [workshops@nuwireless.org](mailto:workshops@nuwireless.org)
-* **Club Website:** [https://nuwireless.org](https://nuwireless.org)
-
----
-
-## Design and Contributions
-
-All workshop materials and repository design were created by [**Muhammad Elarbi**](https://melarbi.com) using LaTeX Beamer.
-For more information, contact: [elarbi.m@northeastern.edu](mailto:elarbi.m@northeastern.edu)
-
-This workshop was revived after its last run in Fall 2020.
-Special thanks to [Jack Leightcap](https://jack.leightcap.com/) (President '22) and Connor Northway (VP '22).
+* Contributor's Email: [elarbi.m@northeastern.edu](mailto:elarbi.m@northeastern.edu)
+* Workshop Email: [workshops@nuwireless.org](mailto:workshops@nuwireless.org)
+* Club Website: [https://nuwireless.org](https://nuwireless.org)
 
 ---
 
